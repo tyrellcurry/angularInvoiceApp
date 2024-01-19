@@ -1,0 +1,35 @@
+<section *ngIf="(invoices.length < 0); else invoiceSection" class="h-[80%] bg-red-200">
+  <div class="flex flex-col items-center justify-center h-full">
+    <div class="pb-10">
+      <img class="max-w-[300px]" src="assets/invoice/invoices-none.png" alt="Lady with envelop">
+    </div>
+    <div class="text-center">
+      <h3 class="font-bold text-2xl pb-4 dark:text-white">There is nothing here</h3>
+      <p class="leading-5 text-faded-purple-alt">
+        Create an invoice by clicking the <br />
+        <span class="font-semibold">New Invoice</span> button and get started
+      </p>
+    </div>
+  </div>
+</section>
+<ng-template #invoiceSection>
+  <section class="py-20">
+    <div class="flex items-center justify-between px-8 py-4 mb-4 bg-white drop-shadow-md rounded-lg cursor-pointer box-border border-transparent border-2 hover:border-vivid-purple dark:bg-invoice-dark" *ngFor="let invoice of invoices">
+      <div class="flex gap-10">
+        <p class="font-semibold text-purple-shade w-12 mr-6">#<span class="text-dark-black dark:text-white">{{invoice.id}}</span></p>
+        <p class="text-purple-shade dark:text-faded-hover-purple w-32 mr-4">Due {{invoice.paymentDue | date:'dd MMM yyyy'}}</p>
+        <p class="text-purple-shade-alt dark:text-white">{{invoice.clientName}}</p>
+      </div>
+      <div class="flex items-center">
+        <p class="dark:text-white pr-12 font-semibold text-lg">${{invoice.total | number : '1.2-2'}}</p>
+        <div class="flex items-center justify-center w-28 text-center rounded-md text-lg" [ngClass]="{'bg-paid-bg text-paid dark:bg-paid-bg-dark': invoice.status === 'paid', 'bg-pending-bg text-pending dark:bg-pending-bg-dark': invoice.status === 'pending', 'bg-draft-bg text-draft dark:bg-draft-bg-dark dark:text-draft-dark': invoice.status === 'draft'}">
+          <span class="text-4xl">&#8226;</span><p class="font-semibold">{{invoice.status | titlecase}}</p>
+        </div>
+        <div class="pl-4">
+          <img class="max-w-[8px] self-center" src="assets/invoice/chevron-right.png" alt="chevron right">
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>
+
