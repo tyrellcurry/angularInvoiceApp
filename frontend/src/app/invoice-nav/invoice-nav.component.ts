@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceNavComponent implements OnInit {
 
+  filterBoxOpen: boolean = false;
+
+  filterBoxToggle():void{
+    this.filterBoxOpen = !this.filterBoxOpen;
+  }
   constructor() { }
 
   ngOnInit(): void {

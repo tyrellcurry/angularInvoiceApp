@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'faded-white': '#F8F8FB',        
         'dark-purple': '#141625',
+        'dark-purple-alt': '#252945',
         'mid-dark-purple': '#373B53',
         'mid-purple': '#494E6E',
         'vivid-purple': '#7C5DFA',

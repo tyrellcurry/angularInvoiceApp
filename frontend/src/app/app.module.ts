@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InvoiceNavComponent } from './invoice-nav/invoice-nav.component';
 import { InvoiceMainComponent } from './invoice-main/invoice-main.component';
+import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.component';
+import { InvoiceService } from './invoice.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     InvoiceNavComponent,
-    InvoiceMainComponent
+    InvoiceMainComponent,
+    InvoicePreviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [InvoiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InvoiceService } from '../invoice.service';
 
 @Component({
   selector: 'app-invoice-main',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceMainComponent implements OnInit {
 
-  
+  invoiceOpen: boolean = false;
+
+  constructor(private invoiceService: InvoiceService) {}
   invoices = [{
     "id": "RT3080",
     "createdAt": "2021-08-18",
@@ -242,6 +245,15 @@ export class InvoiceMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onInvoiceClick(this.invoices[0])
+  }
+
+  onInvoiceClick(invoice: any) {
+    this.invoiceService.setSelectedInvoice(invoice);
+    this.toggleInvoicePreview();
+  }
+  toggleInvoicePreview():void{
+    this.invoiceOpen = !this.invoiceOpen;
   }
 
 }

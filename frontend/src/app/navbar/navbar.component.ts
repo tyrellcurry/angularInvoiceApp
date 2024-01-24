@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
     document.documentElement.classList.remove('dark');
   }
   tester: string = 'helloworld';
-  pfp: string = 'assets/nav/pfp-1.png';
+  pfp: string = 'assets/nav/pfp-2.png';
   constructor() { 
   }
 

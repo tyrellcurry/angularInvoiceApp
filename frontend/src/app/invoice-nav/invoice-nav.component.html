@@ -4,17 +4,31 @@
     <p class="text-faded-purple-alt text-sm pt-2">No invoices</p>
   </div>
   <div class="flex gap-12 items-center">
-    <div>
-      <button class="flex items-center gap-3">
+    <div class="relative">
+      <button class="flex items-center gap-3" (click)="filterBoxToggle()">
         <span class="font-bold text-sm dark:text-white">Filter by status</span>
-        <img class="max-w-[12px]" src="assets/invoice/chevron-down.png" alt="chevron down">
+        <img class="max-w-[12px] transition-[transform] duration-150 ease-in-out" [ngClass]="filterBoxOpen ? 'scale-y-[-1]':''" src="assets/invoice/chevron-down.png" alt="chevron down">
       </button>
+      <div *ngIf="filterBoxOpen" id="box" class="bg-white py-4 px-5 w-[165px] rounded-lg drop-shadow-md absolute -left-6 top-8 z-10 dark:bg-dark-purple-alt dark:text-white">
+        <div>
+          <input class="cursor-pointer" type="checkbox" id="draft" name="draft" />
+          <label class="cursor-pointer select-none pl-2 font-semibold" for="draft">Draft</label>
+        </div>
+        <div>
+          <input class="cursor-pointer" type="checkbox" id="pending" name="pending" />
+          <label class="cursor-pointer select-none pl-2 font-semibold" for="pending">Pending</label>
+        </div>
+        <div>
+          <input class="cursor-pointer" type="checkbox" id="paid" name="paid" />
+          <label class="cursor-pointer select-none pl-2 font-semibold" for="paid">Paid</label>
+        </div>
+      </div>
     </div>
     <button class="bg-vivid-purple text-white flex items-center gap-3 py-2 pl-2 pr-3 rounded-full hover:bg-vivid-purple-hover">
       <div class="bg-white w-fit p-2.5 rounded-full">
         <img class="max-w-[12px]" src="assets/invoice/plus-icon.png" alt="plus">
       </div>
-      <span class="text-sm font-semibold tracking-wider">New Invoice</span>
+      <span class="text-sm font-semibold tracking-wider select-none">New Invoice</span>
     </button>
   </div>
 </div>
