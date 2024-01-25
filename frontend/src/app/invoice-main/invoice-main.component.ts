@@ -6,10 +6,16 @@ import { InvoiceService } from '../invoice.service';
   templateUrl: './invoice-main.component.html',
 })
 export class InvoiceMainComponent implements OnInit {
+  constructor(public _invoiceService: InvoiceService) {}
+
+  ngOnInit(): void {
+    this.onInvoiceClick(this.invoices[0])
+    this.invoiceCount();
+  }
 
   invoiceOpen: boolean = false;
+  darkMode: boolean = false;
 
-  constructor(private invoiceService: InvoiceService) {}
   invoices = [{
     "id": "RT3080",
     "createdAt": "2021-08-18",
@@ -240,16 +246,19 @@ export class InvoiceMainComponent implements OnInit {
     "total": 3102.04
   }];
 
+  
+  invoiceCount(){
+    if (this.invoices.length > 0) {
+      this._invoiceService.invoiceCount = this.invoices.length;
+    }
+  }
+
   isObjectEmpty(obj: any): boolean {
     return Object.keys(obj).length === 0;
   }
 
-  ngOnInit(): void {
-    this.onInvoiceClick(this.invoices[0])
-  }
-
   onInvoiceClick(invoice: any) {
-    this.invoiceService.setSelectedInvoice(invoice);
+    this._invoiceService.setSelectedInvoice(invoice);
     this.toggleInvoicePreview();
   }
   toggleInvoicePreview():void{

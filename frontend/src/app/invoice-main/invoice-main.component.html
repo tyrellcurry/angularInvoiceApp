@@ -30,8 +30,8 @@
         </div>
       </div>
     </div>
-    <menu>
-      <button (click)="toggleInvoicePreview()">close</button>
+    <menu *ngIf="invoiceOpen">
+      <button class="flex items-center gap-4 group" (click)="toggleInvoicePreview()"><img class="max-w-[9px] self-center rotate-180" src="assets/invoice/chevron-right.png" alt="chevron left"><span class="text-dark-black font-semibold text-lg pt-[3px] group-hover:text-purple-shade dark:text-white dark:group-hover:text-faded-purple-alt">Go back</span></button>
     </menu>
     <app-invoice-preview *ngIf="invoiceOpen"></app-invoice-preview>
   </section>

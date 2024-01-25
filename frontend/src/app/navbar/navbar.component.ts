@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { InvoiceService } from '../invoice.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnInit {
+  constructor(private _invoiceService: InvoiceService) { 
+  }
   darkMode: boolean = false;
+  
   darkModeToggle = (): void => {
     this.darkMode = !this.darkMode;  
+    this._invoiceService.dmData = this.darkMode;
     if (this.darkMode) {
       localStorage.setItem('theme', 'dark');
       document.documentElement.classList.add('dark');
@@ -18,8 +23,6 @@ export class NavbarComponent implements OnInit {
   }
   tester: string = 'helloworld';
   pfp: string = 'assets/nav/pfp-2.png';
-  constructor() { 
-  }
 
   ngOnInit(): void {
   }  

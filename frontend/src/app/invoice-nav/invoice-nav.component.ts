@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InvoiceService } from '../invoice.service';
 
 @Component({
   selector: 'app-invoice-nav',
@@ -11,7 +12,7 @@ export class InvoiceNavComponent implements OnInit {
   filterBoxToggle():void{
     this.filterBoxOpen = !this.filterBoxOpen;
   }
-  constructor() { }
+  constructor(public _invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
   }
