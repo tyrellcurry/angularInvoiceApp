@@ -9,7 +9,7 @@ export class InvoiceMainComponent implements OnInit {
   constructor(public _invoiceService: InvoiceService) {}
 
   ngOnInit(): void {
-    this.onInvoiceClick(this.invoices[0])
+    this.onInvoiceClick(this.invoices[1])
     this.invoiceCount();
   }
 
@@ -263,6 +263,7 @@ export class InvoiceMainComponent implements OnInit {
   }
   toggleInvoicePreview():void{
     this.invoiceOpen = !this.invoiceOpen;
+    this._invoiceService.invoicePreview = !this._invoiceService.invoicePreview;
   }
 
 }

@@ -10,6 +10,7 @@ export class InvoiceService {
   selectedInvoice$ = this.selectedInvoiceSource.asObservable();
   public dmData: boolean = false;
   public invoiceCount: any = "No";
+  public invoicePreview: boolean = false;
 
   setSelectedInvoice(invoice: any) {
     this.selectedInvoiceSource.next(invoice);

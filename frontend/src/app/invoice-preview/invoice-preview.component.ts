@@ -4,7 +4,6 @@ import { InvoiceService } from '../invoice.service';
 @Component({
   selector: 'app-invoice-preview',
   templateUrl: './invoice-preview.component.html',
-  styleUrls: ['./invoice-preview.component.css']
 })
 export class InvoicePreviewComponent implements OnInit {
   selectedInvoice: any;

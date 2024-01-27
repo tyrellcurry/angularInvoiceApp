@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center">
+<div class="flex justify-between items-center pb-20" *ngIf="!this._invoiceService.invoicePreview">
   <div> 
     <h1 class="text-4xl font-bold dark:text-white">Invoices</h1>
     <p class="text-faded-purple-alt text-sm pt-2">{{_invoiceService.invoiceCount}} invoices</p>

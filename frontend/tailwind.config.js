@@ -16,6 +16,7 @@ module.exports = {
         'faded-purple': '#858BB2',
         'faded-purple-alt': '#888EB0',
         'faded-hover-purple': '#DFE3FA',
+        'lighter-grey': '#F9FAFE',
         'hr-grey': '#979797',
         'dark-black': '#0C0E16',
         'purple-shade': '#7E88C3',
@@ -30,7 +31,9 @@ module.exports = {
         'draft-bg': '#F4F4F5',
         'draft-dark': '#DFE3FA',
         'draft-bg-dark': '#292C44',
-        'invoice-dark': '#1E2139'
+        'invoice-dark': '#1E2139',
+        'delete-red': '#EC5757',
+        'delete-red-hover': '#FF9797',
       },
     },
   },

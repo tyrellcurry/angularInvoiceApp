@@ -6,15 +6,15 @@ import { InvoiceService } from '../invoice.service';
   templateUrl: './invoice-nav.component.html',
 })
 export class InvoiceNavComponent implements OnInit {
+  constructor(public _invoiceService: InvoiceService) { }
 
   filterBoxOpen: boolean = false;
-
   filterBoxToggle():void{
     this.filterBoxOpen = !this.filterBoxOpen;
   }
-  constructor(public _invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
   }
 
 }
+
