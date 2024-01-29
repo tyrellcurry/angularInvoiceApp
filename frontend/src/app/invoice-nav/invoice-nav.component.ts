@@ -14,6 +14,24 @@ export class InvoiceNavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+  }
+
+  statusFilters = this._invoiceService.statusFilters;
+
+  filterStatus(filter: any):void {
+    const status = filter.getAttribute("name");
+    const index = this.statusFilters.indexOf(status);
+    console.log(index);
+    if(filter.checked && index === -1){
+      this.statusFilters.push(status);
+    } else {
+      console.log(this.statusFilters);
+      if (index !== -1) {
+        this.statusFilters.splice(index, 1);
+        console.log(this.statusFilters);
+      }
+    }
   }
 
 }

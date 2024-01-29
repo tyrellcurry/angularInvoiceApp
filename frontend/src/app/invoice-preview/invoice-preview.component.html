@@ -7,18 +7,18 @@
       </div>
     </div>
     <div class="flex w-full justify-end gap-2">
-      <button class="bg-lighter-grey h-[50px] w-[80px] rounded-full font-semibold text-purple-shade inline-flex items-center justify-center pt-1 hover:bg-faded-hover-purple dark:bg-dark-purple-alt dark:text-faded-hover-purple">Edit</button>
+      <button class="bg-lighter-grey h-[50px] w-[80px] rounded-full font-semibold text-purple-shade inline-flex items-center justify-center pt-1 hover:bg-faded-hover-purple dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-white dark:hover:text-purple-shade">Edit</button>
       <button class="bg-delete-red h-[50px] w-full max-w-[90px] rounded-full font-semibold text-white inline-flex items-center justify-center pt-1 hover:bg-delete-red-hover">Delete</button>
       <button class="bg-vivid-purple h-[50px] w-full max-w-[135px] rounded-full font-semibold text-white inline-flex items-center justify-center pt-1 hover:bg-vivid-purple-hover">Mark as Paid</button>
     </div>
   </section>
-  <section class="bg-white p-14 drop-shadow-md rounded-md mt-6">
+  <section class="bg-white p-14 drop-shadow-md rounded-md mt-6 dark:bg-invoice-dark">
     <div class="flex justify-between">
       <div>
-        <h2 class="text-faded-purple-alt font-semibold text-xl">#<span class="text-dark-black">{{selectedInvoice.id}}</span></h2>
-        <p class="text-purple-shade">{{selectedInvoice.description}}</p>
+        <h2 class="text-faded-purple-alt font-semibold text-xl">#<span class="text-dark-black dark:text-white">{{selectedInvoice.id}}</span></h2>
+        <p class="text-purple-shade dark:text-draft-dark">{{selectedInvoice.description}}</p>
       </div>
-      <div class="text-right text-purple-shade">
+      <div class="text-right text-purple-shade dark:text-draft-dark">
         <p>{{selectedInvoice.senderAddress.street}}</p>
         <p>{{selectedInvoice.senderAddress.city}}</p>
         <p>{{selectedInvoice.senderAddress.postCode}}</p>
@@ -28,18 +28,18 @@
     <div class="flex justify-between w-3/4 pb-14">
       <div>
         <div class="pb-6">
-          <p class="text-purple-shade">Invoice Date</p>
-          <p class="font-semibold text-xl">{{selectedInvoice.createdAt | date:'dd MMM yyyy'}}</p>
+          <p class="text-purple-shade dark:text-draft-dark">Invoice Date</p>
+          <p class="font-semibold text-xl dark:text-white">{{selectedInvoice.createdAt | date:'dd MMM yyyy'}}</p>
         </div>
         <div>
-          <p class="text-purple-shade">Payment Due</p>
-          <p class="font-semibold text-xl">{{selectedInvoice.paymentDue | date:'dd MMM yyyy'}}</p>
+          <p class="text-purple-shade dark:text-draft-dark">Payment Due</p>
+          <p class="font-semibold text-xl dark:text-white">{{selectedInvoice.paymentDue | date:'dd MMM yyyy'}}</p>
         </div>
       </div>
       <div>
-        <p class="text-purple-shade">Bill To</p>
-        <p class="font-semibold text-xl">{{selectedInvoice.clientName}}</p>
-        <div class="text-purple-shade">
+        <p class="text-purple-shade dark:text-draft-dark">Bill To</p>
+        <p class="font-semibold text-xl dark:text-white">{{selectedInvoice.clientName}}</p>
+        <div class="text-purple-shade dark:text-draft-dark">
           <p>{{selectedInvoice.clientAddress.street}}</p>
           <p>{{selectedInvoice.clientAddress.city}}</p>
           <p>{{selectedInvoice.clientAddress.postCode}}</p>
@@ -47,41 +47,41 @@
         </div>
       </div>
       <div>
-        <p class="text-purple-shade">Sent to</p>
-        <p class="font-semibold text-xl">{{selectedInvoice.clientEmail}}</p>
+        <p class="text-purple-shade dark:text-draft-dark">Sent to</p>
+        <p class="font-semibold text-xl dark:text-white">{{selectedInvoice.clientEmail}}</p>
       </div>
     </div>
-    <section class="flex justify-between bg-lighter-grey rounded-t-md p-8">
+    <section class="flex justify-between bg-lighter-grey rounded-t-md p-8 dark:bg-dark-purple-alt">
       <div class="w-1/2">
         <div>
-          <p class="text-purple-shade pb-4">Item Name</p>
+          <p class="text-purple-shade pb-4 dark:text-draft-dark">Item Name</p>
           <div *ngFor="let item of selectedInvoice.items">
-            <p class="text-lg font-semibold pb-4">{{item.name}}</p>
+            <p class="text-lg font-semibold pb-4 dark:text-white">{{item.name}}</p>
           </div>
         </div>
       </div>
       <div class="flex w-1/2 justify-between">
         <div class="text-right">
-          <p class="text-purple-shade pb-4">QTY.</p>
+          <p class="text-purple-shade pb-4 dark:text-draft-dark">QTY.</p>
           <div *ngFor="let item of selectedInvoice.items">
-            <p class="text-purple-shade text-lg font-semibold pb-4">{{item.quantity}}</p>
+            <p class="text-purple-shade text-lg font-semibold pb-4 dark:text-white">{{item.quantity}}</p>
           </div>
         </div>
         <div class="text-right">
-          <p class="text-purple-shade pb-4">Price</p>
+          <p class="text-purple-shade pb-4 dark:text-draft-dark">Price</p>
           <div *ngFor="let item of selectedInvoice.items">
-            <p class="text-purple-shade text-lg font-semibold pb-4">${{item.price}}</p>
+            <p class="text-purple-shade text-lg font-semibold pb-4 dark:text-white">${{item.price}}</p>
           </div>
         </div>
         <div class="text-right">
-          <p class="text-purple-shade pb-4">Total</p>
+          <p class="text-purple-shade pb-4 dark:text-draft-dark">Total</p>
           <div *ngFor="let item of selectedInvoice.items">
-            <p class="text-lg font-semibold pb-4">${{item.total}}</p>
+            <p class="text-lg font-semibold pb-4 dark:text-white">${{item.total}}</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="flex justify-between items-center bg-draft text-white rounded-b-md p-8">
+    <section class="flex justify-between items-center bg-draft text-white rounded-b-md p-8 dark:bg-dark-black">
       <p class="text-lg">Ammount Due</p>
       <p class="text-4xl font-medium">${{selectedInvoice.total}}</p>
     </section>

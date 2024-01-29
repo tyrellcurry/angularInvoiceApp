@@ -8,12 +8,13 @@ import { InvoiceService } from '../invoice.service';
 export class InvoicePreviewComponent implements OnInit {
   selectedInvoice: any;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private _invoiceService: InvoiceService) {}
 
+  
   ngOnInit() {
-    this.invoiceService.selectedInvoice$.subscribe((invoice) => {
+    this._invoiceService.selectedInvoice$.subscribe((invoice) => {
       this.selectedInvoice = invoice;
-    });
+    });    
   }
 
 }

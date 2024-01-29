@@ -8,8 +8,10 @@ import { InvoiceService } from '../invoice.service';
 export class InvoiceMainComponent implements OnInit {
   constructor(public _invoiceService: InvoiceService) {}
 
+  statusFilters = this._invoiceService.statusFilters
+
   ngOnInit(): void {
-    this.onInvoiceClick(this.invoices[1])
+    // this.onInvoiceClick(this.invoices[1])
     this.invoiceCount();
   }
 
@@ -260,10 +262,12 @@ export class InvoiceMainComponent implements OnInit {
   onInvoiceClick(invoice: any) {
     this._invoiceService.setSelectedInvoice(invoice);
     this.toggleInvoicePreview();
+    this.statusFilters.splice(0, this.statusFilters.length);
   }
   toggleInvoicePreview():void{
     this.invoiceOpen = !this.invoiceOpen;
     this._invoiceService.invoicePreview = !this._invoiceService.invoicePreview;
+    this.statusFilters.splice(0, this.statusFilters.length);
   }
 
 }

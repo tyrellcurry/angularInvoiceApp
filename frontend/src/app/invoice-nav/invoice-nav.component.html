@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center pb-20" *ngIf="!this._invoiceService.invoicePreview">
+<div class="flex justify-between items-center pb-20 select-none" *ngIf="!this._invoiceService.invoicePreview">
   <div> 
     <h1 class="text-4xl font-bold dark:text-white">Invoices</h1>
     <p class="text-faded-purple-alt text-sm pt-2">{{_invoiceService.invoiceCount}} invoices</p>
@@ -11,20 +11,20 @@
       </button>
       <div *ngIf="filterBoxOpen" id="box" class="bg-white py-4 px-5 w-[165px] rounded-lg drop-shadow-md absolute -left-6 top-8 z-10 dark:bg-dark-purple-alt dark:text-white">
         <div>
-          <input class="cursor-pointer" type="checkbox" id="draft" name="draft" />
-          <label class="cursor-pointer select-none pl-2 font-semibold" for="draft">Draft</label>
+          <input class="cursor-pointer tester" type="checkbox" id="draft" name="draft" (change)="filterStatus($event.target)" />
+          <label class="cursor-pointer pl-2 font-semibold" for="draft">Draft</label>
         </div>
         <div>
-          <input class="cursor-pointer" type="checkbox" id="pending" name="pending" />
-          <label class="cursor-pointer select-none pl-2 font-semibold" for="pending">Pending</label>
+          <input class="cursor-pointer tester" type="checkbox" id="pending" name="pending" (change)="filterStatus($event.target)" />
+          <label class="cursor-pointer pl-2 font-semibold" for="pending">Pending</label>
         </div>
         <div>
-          <input class="cursor-pointer" type="checkbox" id="paid" name="paid" />
-          <label class="cursor-pointer select-none pl-2 font-semibold" for="paid">Paid</label>
+          <input class="cursor-pointer tester" type="checkbox" id="paid" name="paid" (change)="filterStatus($event.target)" />
+          <label class="cursor-pointer pl-2 font-semibold" for="paid">Paid</label>
         </div>
       </div>
     </div>
-    <button class="bg-vivid-purple text-white flex items-center gap-3 py-2 pl-2 pr-3 rounded-full hover:bg-vivid-purple-hover">
+    <button class="bg-vivid-purple text-white flex items-center gap-3 py-2 pl-2 pr-3 rounded-full select-none hover:bg-vivid-purple-hover">
       <div class="bg-white w-fit p-2.5 rounded-full">
         <img class="max-w-[12px]" src="assets/invoice/plus-icon.png" alt="plus">
       </div>

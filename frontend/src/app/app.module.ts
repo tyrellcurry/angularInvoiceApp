@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InvoiceNavComponent } from './invoice-nav/invoice-nav.component';
 import { InvoiceMainComponent } from './invoice-main/invoice-main.component';
 import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.component';
+import { InvoiceEditorComponent } from './invoice-editor/invoice-editor.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.compo
     NavbarComponent,
     InvoiceNavComponent,
     InvoiceMainComponent,
-    InvoicePreviewComponent
+    InvoicePreviewComponent,
+    InvoiceEditorComponent
   ],
   imports: [
     BrowserModule,
