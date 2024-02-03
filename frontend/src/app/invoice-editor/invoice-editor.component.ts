@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./invoice-editor.component.css'],
 })
 export class InvoiceEditorComponent implements OnInit {
-  @ViewChild('leftElements') leftElements!: ElementRef;
-  @ViewChild('rightElements') rightElements!: ElementRef;
+  @ViewChild('newItems') newItems!: ElementRef;
+
   constructor(private renderer: Renderer2) {}
 
   qty:number = 0;
@@ -25,10 +25,11 @@ export class InvoiceEditorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addItem(): void {
-    
-  }
   calculateTotal():void {
     this.total = this.qty * this.price;
+  }
+
+  addItem(): void {
+    console.log('Button clicked');
   }
 }
