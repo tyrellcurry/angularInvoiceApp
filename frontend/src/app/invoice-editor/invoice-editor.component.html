@@ -67,23 +67,29 @@
       <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="productdescription" name="productdescription">
     </div>
     <h4 class="text-grey-blue text-xl font-semibold pb-4">Item List</h4>
-    <div class="flex justify-between text-purple-shade dark:text-draft-dark">
-      <div class="w-3/5">
-        <p>Item Name</p>
-      </div>
-      <div class="flex w-2/5 justify-between">
-        <p>Qty.</p>
-        <p>Price</p>
-        <p>Total</p>
-      </div>
-    </div>
-    <div class="flex" id="itemTest">
-      <div class="w-3/5" #leftElements>
-        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="productdescription" name="productdescription">
-      </div>
-      <div class="flex w-2/5 justify-between" #rightElements>
-        
-      </div>
+    <div class="grid grid-cols-5 items-center">
+      <span class="col-span-2 text-purple-shade dark:text-draft-dark">
+        Item Name
+      </span>
+      <span class="text-purple-shade dark:text-draft-dark">
+        Qty.
+      </span>
+      <span class="text-purple-shade dark:text-draft-dark">
+        Price
+      </span>
+      <span class="text-purple-shade dark:text-draft-dark">
+        Total
+      </span>
+      <span class="col-span-2">
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" name="itemName">
+      </span>
+      <span>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="qty" (input)="calculateTotal()" [(ngModel)]="qty">
+      </span>
+      <span>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="price" (input)="calculateTotal()" [(ngModel)]="price">
+      </span>
+      <span>{{ total }}</span>
     </div>
     <button type="button" class="bg-[#eaecf7] text-purple-shade w-full py-3 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark" (click)="addItem()">
       + Add New Item
