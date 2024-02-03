@@ -1,63 +1,101 @@
-<section class="absolute bg-pink-100 w-fit h-screen hidden">
-  <h3>New Invoice</h3>
-  <form>
-    <h4>Bill From</h4>
-    <div>
-      <label for="billfrom_address">Street Address</label>
-      <input type="text" id="billfrom_address" name="billfrom_address">
+<section class="absolute h-screen z-20 p-8 w-full max-w-[550px] bg-faded-white dark:bg-dark-purple overflow-scroll">
+  <h3 class="text-2xl font-semibold pb-8 dark:text-white">New Invoice</h3>
+  <form class="mb-40">
+    <h4 class="text-vivid-purple font-semibold text-lg pb-3">Bill From</h4>
+    <div class="pb-3">
+      <label class="text-purple-shade dark:text-draft-dark" for="billfrom_address">Street Address</label>
+      <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billfrom_address" name="billfrom_address">
     </div>
-    <div>
+    <div class="flex pb-6 gap-x-4">
       <div>
-        <label for="billfrom_city">City</label>
-        <input type="text" id="billfrom_city" name="billfrom_city">
+        <label class="text-purple-shade dark:text-draft-dark" for="billfrom_city">City</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billfrom_city" name="billfrom_city">
       </div>
       <div>
-        <label for="billfrom_postal">Postal</label>
-        <input type="text" id="billfrom_postal" name="billfrom_postal">
+        <label class="text-purple-shade dark:text-draft-dark" for="billfrom_postal">Postal</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billfrom_postal" name="billfrom_postal">
       </div>
       <div>
-        <label for="billfrom_country">Country</label>
-        <input type="text" id="billfrom_country" name="billfrom_country">
+        <label class="text-purple-shade dark:text-draft-dark" for="billfrom_country">Country</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billfrom_country" name="billfrom_country">
       </div>
     </div>
-    <h4>Bill To</h4>
-    <div>
-      <label for="billto_clientname">Client's Name</label>
-      <input type="text" id="billto_clientname" name="billto_clientname">
+    <h4 class="text-vivid-purple font-semibold text-lg pb-3">Bill To</h4>
+    <div class="pb-3">
+      <label class="text-purple-shade dark:text-draft-dark" for="billto_clientname">Client's Name</label>
+      <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_clientname" name="billto_clientname">
     </div>
-    <div>
-      <label for="billto_clientemail">Client's Email</label>
-      <input type="text" id="billto_clientemail" name="billto_clientemail">
+    <div class="pb-3">
+      <label class="text-purple-shade dark:text-draft-dark" for="billto_clientemail">Client's Email</label>
+      <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_clientemail" name="billto_clientemail">
     </div>
-    <div>
-      <label for="billto_address">Street Address</label>
-      <input type="text" id="billto_address" name="billto_address">
+    <div class="pb-3">
+      <label class="text-purple-shade dark:text-draft-dark" for="billto_address">Street Address</label>
+      <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_address" name="billto_address">
     </div>
-    <div>
+    <div class="flex pb-6 gap-x-4">
       <div>
-        <label for="billto_city">City</label>
-        <input type="text" id="billto_city" name="billto_city">
-      </div>
-      <div>
-        <label for="billto_postal">Postal</label>
-        <input type="text" id="billto_postal" name="billto_postal">
+        <label class="text-purple-shade dark:text-draft-dark" for="billto_city">City</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_city" name="billto_city">
       </div>
       <div>
-        <label for="billto_country">Country</label>
-        <input type="text" id="billto_country" name="billto_country">
-      </div>
-    </div>
-    <div>
-      <div>
-        <label for="invoicedate">Invoice Date</label>
+        <label class="text-purple-shade dark:text-draft-dark" for="billto_postal">Postal</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_postal" name="billto_postal">
       </div>
       <div>
-        <label for="paymentterms">Payment Terms</label>
+        <label class="text-purple-shade dark:text-draft-dark" for="billto_country">Country</label>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="billto_country" name="billto_country">
       </div>
     </div>
-    <div>
-      <label for="descriptions">Project Description</label>
+    <div class="flex pb-8 gap-x-4">
+      <div class="w-full">
+        <label class="text-purple-shade dark:text-draft-dark" for="invoicedate">Invoice Date</label>
+        <input class="block w-full border-draft-dark h-full max-h-[40px] px-2 border-2 bg-faded-white rounded" type="date" id="invoicedate" name="invoicedate" />
+      </div>
+      <div class="w-full">
+        <label class="text-purple-shade dark:text-draft-dark" for="paymentterms">Payment Terms</label>
+        <select class="custom_select block w-full h-full max-h-[40px] px-2 border-draft-dark border-2 bg-faded-white rounded" name="paymentterms" id="paymentterms">
+          <option value="volvo">Net 1 Day</option>
+          <option value="saab">Net 7 Days</option>
+          <option value="mercedes">Net 14 Days</option>
+          <option value="audi">Net 30 Days</option>
+        </select>
+      </div>
     </div>
-    <h4>Item List</h4>
+    <div class="pb-6">
+      <label class="text-purple-shade dark:text-draft-dark" for="descriptions">Project Description</label>
+      <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="productdescription" name="productdescription">
+    </div>
+    <h4 class="text-grey-blue text-xl font-semibold pb-4">Item List</h4>
+    <div class="flex justify-between text-purple-shade dark:text-draft-dark">
+      <div class="w-3/5">
+        <p>Item Name</p>
+      </div>
+      <div class="flex w-2/5 justify-between">
+        <p>Qty.</p>
+        <p>Price</p>
+        <p>Total</p>
+      </div>
+    </div>
+    <div class="flex" id="itemTest">
+      <div class="w-3/5" #leftElements>
+        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="productdescription" name="productdescription">
+      </div>
+      <div class="flex w-2/5 justify-between" #rightElements>
+        
+      </div>
+    </div>
+    <button type="button" class="bg-[#eaecf7] text-purple-shade w-full py-3 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark" (click)="addItem()">
+      + Add New Item
+    </button>
+    <div class="flex justify-between pt-12">
+      <div>
+        <button type="button" class="bg-[#eaecf7] text-purple-shade py-3 px-8 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark">Discard</button>
+      </div>
+      <div class="flex gap-x-2">
+        <button type="button" class="bg-mid-dark-purple text-faded-purple-alt py-3 px-8 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-dark-black dark:bg-draft dark:text-draft-dark dark:hover:bg-invoice-dark">Save as Draft</button>
+        <button type="button" class="bg-vivid-purple-hover text-white py-3 px-8 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-dark-black dark:bg-draft dark:text-draft-dark dark:hover:bg-invoice-dark">Save & Send</button>
+      </div>
+    </div>
   </form>
 </section>

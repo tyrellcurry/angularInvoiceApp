@@ -1,0 +1,9 @@
+select.custom_select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("/assets/nav/chevron-down.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 14px;
+  background-size: 12px;
+}

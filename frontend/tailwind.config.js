@@ -34,6 +34,7 @@ module.exports = {
         'invoice-dark': '#1E2139',
         'delete-red': '#EC5757',
         'delete-red-hover': '#FF9797',
+        'grey-blue': '#777F98',
       },
     },
   },
