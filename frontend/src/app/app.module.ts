@@ -8,7 +8,7 @@ import { InvoiceNavComponent } from './invoice-nav/invoice-nav.component';
 import { InvoiceMainComponent } from './invoice-main/invoice-main.component';
 import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.component';
 import { InvoiceEditorComponent } from './invoice-editor/invoice-editor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

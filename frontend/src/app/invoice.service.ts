@@ -11,6 +11,7 @@ export class InvoiceService {
   public dmData: boolean = false;
   public invoiceCount: any = "No";
   public invoicePreview: boolean = false;
+  public invoiceEdited: boolean = false;
   public statusFilters: string[] = [];
 
   setSelectedInvoice(invoice: any) {

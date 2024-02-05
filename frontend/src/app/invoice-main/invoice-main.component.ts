@@ -247,7 +247,6 @@ export class InvoiceMainComponent implements OnInit {
     ],
     "total": 3102.04
   }];
-
   
   invoiceCount(){
     if (this.invoices.length > 0) {

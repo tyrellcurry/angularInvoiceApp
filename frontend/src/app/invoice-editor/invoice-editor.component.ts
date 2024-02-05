@@ -5,7 +5,9 @@ import {
   ViewChild,
   Renderer2,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+
+import { InvoiceService } from '../invoice.service';
 
 @Component({
   selector: 'app-invoice-editor',
@@ -13,23 +15,60 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./invoice-editor.component.css'],
 })
 export class InvoiceEditorComponent implements OnInit {
-  @ViewChild('newItems') newItems!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  
+  item = {
+    items: [{ itemName: '', qty: 0, price: 0, total: 0 }]
+  }
+  
+  form: FormGroup = this.formBuilder.group({
+    items: this.buildContacts(this.item.items)
+  });
+  
+  constructor(private formBuilder: FormBuilder, public _invoiceService: InvoiceService) {}
+  
+  invoiceEdited = this._invoiceService.invoiceEdited;
 
-  qty:number = 0;
-  price:number = 0;
-  total:number = 0;
+  get items(): FormArray {
+    return this.form.get('items') as FormArray;
+  }
+
+  buildContacts(contacts: {itemName: string; qty: number; price: number;}[] = []) {
+    return this.formBuilder.array(contacts.map(contact => this.formBuilder.group(contact)));
+  }
+
+  addItem() {
+    this.items.push(this.formBuilder.group({itemName: '', qty: 0, price: 0, total: 0 }))
+  }
+
+  removeItem(index: number): void {
+   this.items.removeAt(index);
+  }
+  
+  calculateTotal(rowIndex: number) {
+    console.log('input changed')
+    let formGroup = this.items.controls[rowIndex] as FormGroup;
+    let qty = formGroup.controls['qty'].value;
+    let price = formGroup.controls['price'].value;
+    console.log("Qty: " + qty);
+    console.log("Price: " + price);
+  
+    if (qty && price){
+      formGroup.controls['total'].setValue(qty * price);
+    } else {
+        formGroup.controls['total'].setValue(0); 
+    }
+  }
+
+  submit(value: any): void {
+    console.log(value)
+  }
 
   ngAfterViewInit() {}
 
-  ngOnInit(): void {}
-
-  calculateTotal():void {
-    this.total = this.qty * this.price;
+  ngOnInit(): void {
   }
+  newItems: any[] = [];
+  total: number = 0;
 
-  addItem(): void {
-    console.log('Button clicked');
-  }
 }

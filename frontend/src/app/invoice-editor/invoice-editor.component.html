@@ -1,6 +1,6 @@
-<section class="absolute h-screen z-20 p-8 w-full max-w-[550px] bg-faded-white dark:bg-dark-purple overflow-scroll">
+<section *ngIf="invoiceEdited" class="absolute h-screen z-20 p-8 w-full max-w-[550px] bg-faded-white dark:bg-dark-purple overflow-y-scroll">
   <h3 class="text-2xl font-semibold pb-8 dark:text-white">New Invoice</h3>
-  <form class="mb-40">
+  <form class="mb-5">
     <h4 class="text-vivid-purple font-semibold text-lg pb-3">Bill From</h4>
     <div class="pb-3">
       <label class="text-purple-shade dark:text-draft-dark" for="billfrom_address">Street Address</label>
@@ -67,33 +67,47 @@
       <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" id="productdescription" name="productdescription">
     </div>
     <h4 class="text-grey-blue text-xl font-semibold pb-4">Item List</h4>
-    <div class="grid grid-cols-5 items-center" #newItems>
-      <span class="col-span-2 text-purple-shade dark:text-draft-dark">
+    <div class="grid grid-cols-6 items-center">
+      <span class="col-span-2 pr-2 text-purple-shade dark:text-draft-dark">
         Item Name
       </span>
-      <span class="text-purple-shade dark:text-draft-dark">
+      <span class="pr-2 text-purple-shade dark:text-draft-dark">
         Qty.
       </span>
-      <span class="text-purple-shade dark:text-draft-dark">
+      <span class="pr-2 text-purple-shade dark:text-draft-dark">
         Price
       </span>
       <span class="text-purple-shade dark:text-draft-dark">
         Total
       </span>
-      <span class="col-span-2">
-        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" name="itemName">
-      </span>
-      <span>
-        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="qty" (input)="calculateTotal()" [(ngModel)]="qty">
-      </span>
-      <span>
-        <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="price" (input)="calculateTotal()" [(ngModel)]="price">
-      </span>
-      <span>{{ total }}</span>
     </div>
+    <form [formGroup]="form" (submit)="submit(form.value)">
+    <fieldset class="pb-6"> 
+      <ng-container formArrayName="items" *ngFor="let contact of items.controls; index as i">
+        <div class="grid grid-cols-6 items-center pb-2">
+          <ng-container [formGroupName]="i">
+            <span class="col-span-2 pr-2">
+              <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="text" name="itemName" formControlName="itemName">
+            </span>
+            <span class="pr-2">
+              <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="qty" formControlName="qty" (input)="calculateTotal(i)" min="0">
+            </span>
+            <span class="pr-2">
+              <input class="block border-draft-dark w-full dark:border-dark-purple-alt border-2 outline-none focus:border-vivid-purple-hover dark:focus:border-vivid-purple py-1.5 px-3 rounded font-medium bg-faded-white dark:bg-dark-purple dark:text-white" type="number" name="price" formControlName="price" (input)="calculateTotal(i)" min="0">
+            </span>
+            <input class="b-none bg-transparent font-medium outline-none text-faded-purple-alt dark:text-faded-hover-purpl" type="text" formControlName="total" readonly>
+            <button class="btn-remove ml-auto" type="button" (click)="removeItem(i)">
+              <img class="w-full h-auto max-w-[12px]" src="/assets/invoice/garbage-icon.png" alt="">
+            </button>
+          </ng-container>
+        </div>
+      </ng-container>
+  
+    </fieldset>
     <button type="button" class="bg-[#eaecf7] text-purple-shade w-full py-3 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark" (click)="addItem()">
       + Add New Item
     </button>
+  </form>
     <div class="flex justify-between pt-12">
       <div>
         <button type="button" class="bg-[#eaecf7] text-purple-shade py-3 px-8 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark">Discard</button>
