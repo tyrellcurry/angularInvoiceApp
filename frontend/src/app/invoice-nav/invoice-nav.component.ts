@@ -19,8 +19,7 @@ export class InvoiceNavComponent implements OnInit {
 
   invoiceEditToggle():void {
     console.log("Button clicked");
-    this._invoiceService.invoiceEdited = !this._invoiceService.invoiceEdited;
-    console.log(this._invoiceService.invoiceEdited)
+    this._invoiceService.invoiceEditToggle();
   }
 
   statusFilters = this._invoiceService.statusFilters;

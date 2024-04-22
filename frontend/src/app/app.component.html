@@ -1,11 +1,12 @@
 <section class="flex relative">
-  <div class="w-[90px] dark:bg-dark-purple">
+  <div class="w-[90px] bg-white dark:bg-dark-purple z-50">
     <app-navbar></app-navbar>
   </div>
-  <div>
+  <div class="z-20">
     <app-invoice-editor></app-invoice-editor>
   </div>
   <main class="bg-faded-white dark:bg-dark-purple px-[5rem] w-full h-screen overflow-y-scroll">
+    <div *ngIf="_invoiceService.invoiceEdited$ | async" class="z-10 absolute h-full w-full bg-black/[.65] left-0" (click)="$event.stopPropagation()"></div>
     <section class="max-w-[900px] m-auto pt-20 h-full">
       <div>
         <app-invoice-nav></app-invoice-nav>

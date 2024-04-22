@@ -27,7 +27,7 @@ export class InvoiceEditorComponent implements OnInit {
   
   constructor(private formBuilder: FormBuilder, public _invoiceService: InvoiceService) {}
   
-  invoiceEdited = this._invoiceService.invoiceEdited;
+  invoiceEdited = this._invoiceService.invoiceEdited$;
 
   get items(): FormArray {
     return this.form.get('items') as FormArray;
@@ -60,6 +60,10 @@ export class InvoiceEditorComponent implements OnInit {
     }
   }
 
+  invoiceEditToggle():void {
+    console.log("Button clicked");
+    this._invoiceService.invoiceEditToggle();
+  }
   submit(value: any): void {
     console.log(value)
   }

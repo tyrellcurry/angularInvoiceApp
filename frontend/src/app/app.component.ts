@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InvoiceService } from './invoice.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 }
 )
+
 export class AppComponent {
   title = 'angularInvoiceApp';
+  constructor(public _invoiceService: InvoiceService) {}
+
+  disableClicks(){
+    console.log('I clicked!')
+  }
 }

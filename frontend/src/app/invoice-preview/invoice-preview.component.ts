@@ -10,6 +10,11 @@ export class InvoicePreviewComponent implements OnInit {
 
   constructor(private _invoiceService: InvoiceService) {}
 
+  invoiceEditToggle():void {
+    console.log("Button clicked");
+    this._invoiceService.invoiceEditToggle();
+  }
+
   
   ngOnInit() {
     this._invoiceService.selectedInvoice$.subscribe((invoice) => {
