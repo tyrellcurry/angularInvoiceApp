@@ -38,7 +38,9 @@ Users should be able to:
 
 - Angular
 - TailwindCSS
-- Java Springboot (under development)
+- Express (under development)
+- NodeJS (under development)
+- SQL (under development)
 
 ### What I learned
 
@@ -69,7 +71,7 @@ Conditionally showing a section if true, otherwise triggering a different sectio
 
 ### Continued development
 
-The plan is the have this application as a fullstack application using Java. 
+The plan is the have this application as a fullstack application using NodeJS and Express with SQL as the database. 
 
 ### Useful resources
 
