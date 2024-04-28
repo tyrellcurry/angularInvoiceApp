@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Screenshot
 
-<img src="./frontend/src/assets/readme/preview.jpg" alt="desktop preview" width="500"/>
+<img src="./frontend/src/assets/readme/preview.jpg" alt="desktop preview" width="600"/>
 
 ## My process
 
