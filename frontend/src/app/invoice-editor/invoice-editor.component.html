@@ -50,11 +50,11 @@
     <div class="flex pb-8 gap-x-4">
       <div class="w-full">
         <label class="text-purple-shade dark:text-draft-dark" for="invoicedate">Invoice Date</label>
-        <input class="block w-full border-draft-dark h-full max-h-[40px] px-2 border-2 bg-faded-white rounded" type="date" id="invoicedate" name="invoicedate" />
+        <input class="block dark:bg-dark-purple dark:text-white w-full border-draft-dark h-full max-h-[40px] px-2 border-2 bg-faded-white dark:[color-scheme:dark] dark:border-dark-purple-alt rounded" type="date" id="invoicedate" name="invoicedate" />
       </div>
       <div class="w-full">
         <label class="text-purple-shade dark:text-draft-dark" for="paymentterms">Payment Terms</label>
-        <select class="custom_select block w-full h-full max-h-[40px] px-2 border-draft-dark border-2 bg-faded-white rounded" name="paymentterms" id="paymentterms">
+        <select class="custom_select block dark:bg-dark-purple dark:text-white w-full h-full max-h-[40px] px-2 border-draft-dark border-2 bg-faded-white dark:border-dark-purple-alt rounded" name="paymentterms" id="paymentterms">
           <option value="volvo">Net 1 Day</option>
           <option value="saab">Net 7 Days</option>
           <option value="mercedes">Net 14 Days</option>
@@ -82,7 +82,7 @@
       </span>
     </div>
     <form [formGroup]="form" (submit)="submit(form.value)">
-    <fieldset class="pb-6"> 
+    <fieldset class="pb-6">
       <ng-container formArrayName="items" *ngFor="let contact of items.controls; index as i">
         <div class="grid grid-cols-6 items-center pb-2">
           <ng-container [formGroupName]="i">
@@ -102,7 +102,7 @@
           </ng-container>
         </div>
       </ng-container>
-  
+
     </fieldset>
     <button type="button" class="bg-[#eaecf7] text-purple-shade w-full py-3 pt-3.5 rounded-full font-medium transition-colors duration-200 hover:bg-draft-dark dark:bg-dark-purple-alt dark:text-faded-hover-purple dark:hover:bg-invoice-dark" (click)="addItem()">
       + Add New Item
