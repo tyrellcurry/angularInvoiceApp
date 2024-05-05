@@ -1,6 +1,6 @@
 # Angular Invoice App
 
-This is an interactive and dynamic invoice app built with [Angular](https://angular.io/).
+This is an interactive and dynamic invoice app built with [Angular](https://angular.io/), [Java Spring Boot](https://spring.io/projects/spring-boot), and [MySQL](https://dev.mysql.com/doc/refman/8.0/en/).
 
 Backend and advanced features currently under development 🚧!
 
@@ -38,9 +38,8 @@ Users should be able to:
 
 - Angular
 - TailwindCSS
-- Express (under development)
-- NodeJS (under development)
-- SQL (under development)
+- Java Spring Boot
+- MySQL
 
 ### What I learned
 
@@ -71,11 +70,13 @@ Conditionally showing a section if true, otherwise triggering a different sectio
 
 ### Continued development
 
-The plan is the have this application as a fullstack application using NodeJS and Express with SQL as the database. 
+Advanced features and live deployment are currently in progress.
 
 ### Useful resources
 
 - [Introduction to Angular concepts](https://angular.io/guide/architecture) 
+- [Spring Academy](https://spring.academy/home) 
+- [Getting Started with MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/) 
 
 ### Author
 
