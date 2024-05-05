@@ -1,6 +1,8 @@
 package com.invoiceapp.Controller;
 
+import com.invoiceapp.Models.Invoices;
 import com.invoiceapp.Models.Users;
+import com.invoiceapp.Repo.InvoiceRepo;
 import com.invoiceapp.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,8 @@ public class ApiControllers {
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private InvoiceRepo invoiceRepo;
     @GetMapping(value = "/")
     public String getPage() {
         return "Welcome";
@@ -28,19 +32,30 @@ public class ApiControllers {
         return "Saved...";
     }
 
-    @PutMapping(value = "/update/{id}")
-    public String updateUser(@PathVariable long id, @RequestBody Users user) {
-        Users updatedUser = userRepo.findById(id).get();
+    @PutMapping(value = "/update/{userId}")
+    public String updateUser(@PathVariable long userId, @RequestBody Users user) {
+        Users updatedUser = userRepo.findById(userId).get();
         updatedUser.setUserName(user.getUserName());
         updatedUser.setEmail(user.getEmail());
         userRepo.save(updatedUser);
         return "Updated...";
     }
 
-    @DeleteMapping(value = "/delete/{id}")
-    public String deleteUser(@PathVariable long id) {
-        Users deleteUser = userRepo.findById(id).get();
+    @DeleteMapping(value = "/delete/{userId}")
+    public String deleteUser(@PathVariable long userId) {
+        Users deleteUser = userRepo.findById(userId).get();
         userRepo.delete(deleteUser);
         return "Deleted...";
+    }
+
+    @GetMapping(value = "/invoices") // Endpoint to get all invoices
+    public List<Invoices> getInvoices() {
+        return invoiceRepo.findAll();
+    }
+
+    @PostMapping(value = "/invoices/save") // Endpoint to save an invoice
+    public String saveInvoice(@RequestBody Invoices invoice) {
+        invoiceRepo.save(invoice);
+        return "Invoice saved...";
     }
 }
