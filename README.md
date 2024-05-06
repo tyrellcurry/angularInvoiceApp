@@ -47,6 +47,8 @@ This was my first experience with Angular. I've learned about component creation
 
 #### A few awesome things I learned was:
 
+#### Angular:
+
 Creating a service with an observable property checking for when an invoice is edited, which toggles the the invoice edit status and emmits it to the subscriber:
 
 ```typescript
@@ -66,6 +68,43 @@ Conditionally showing a section if true, otherwise triggering a different sectio
 
 ```html
 <section *ngIf="(invoices.length < 1); else invoiceSection" ...>
+```
+
+#### Java:
+
+Using Models to create tables in MySQL:
+
+```java
+@Entity
+public class Users {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long userId;
+
+    @Column
+    private String userName;
+
+    ...
+```
+
+Using a slug in a post request:
+
+```java
+@PutMapping(value = "/update/{userId}")
+    public String updateUser(@PathVariable long userId, @RequestBody Users user) {
+        Users updatedUser = userRepo.findById(userId).get();
+        updatedUser.setUserName(user.getUserName());
+        updatedUser.setEmail(user.getEmail());
+        userRepo.save(updatedUser);
+        return "Updated...";
+    }
+```
+
+Resolving cross origin errors for development purposes:
+
+```java
+@CrossOrigin(origins = "http://localhost:4200")
 ```
 
 ### Continued development
