@@ -1,18 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from '../invoice.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-invoice-main',
   templateUrl: './invoice-main.component.html',
 })
 export class InvoiceMainComponent implements OnInit {
-  constructor(public _invoiceService: InvoiceService) {}
+  constructor(public _invoiceService: InvoiceService, private http: HttpClient) {}
 
   statusFilters = this._invoiceService.statusFilters
 
   ngOnInit(): void {
     // this.onInvoiceClick(this.invoices[1])
     this.invoiceCount();
+
+    // Test API Call:
+    this.getApiTest();
+  }
+
+  // Test API Call:
+  public testUser: any;
+  public getApiTest() {
+    this.http.get<any[]>('http://localhost:8080/users').subscribe(
+      (response) => {
+        console.log('API Response:', response[0].userName);
+        this.testUser = response[0].userName;
+        // You can further process the response here if needed
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
   }
 
   invoiceOpen: boolean = false;

@@ -9,6 +9,7 @@ import { InvoiceMainComponent } from './invoice-main/invoice-main.component';
 import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.component';
 import { InvoiceEditorComponent } from './invoice-editor/invoice-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
