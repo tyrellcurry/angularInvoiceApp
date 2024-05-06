@@ -22,16 +22,10 @@ export class InvoiceMainComponent implements OnInit {
   // Test API Call:
   public testUser: any;
   public getApiTest() {
-    this.http.get<any[]>('http://localhost:8080/users').subscribe(
-      (response) => {
-        console.log('API Response:', response[0].userName);
-        this.testUser = response[0].userName;
-        // You can further process the response here if needed
-      },
-      (error) => {
-        console.error('API Error:', error);
-      }
-    );
+    this.http.get<any[]>('http://localhost:8080/users').subscribe((response) => {
+      console.log(response);
+      this.testUser = response[0].userName;
+    });
   }
 
   invoiceOpen: boolean = false;
