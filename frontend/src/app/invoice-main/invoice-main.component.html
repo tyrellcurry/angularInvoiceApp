@@ -14,6 +14,11 @@
 </section>
 <ng-template #invoiceSection>
   <section class="pb-20 relative">
+    <!-- Test API Call START -->
+    <div *ngIf="testUser" class="pb-2 text-lg">
+      <p>Test user from db: <span class="font-semibold">{{ testUser }}</span></p>
+    </div>
+    <!-- Test API Call END -->
     <div *ngFor="let invoice of invoices" >
       <div class="flex items-center justify-between px-8 py-4 mb-4 bg-white drop-shadow-md rounded-lg cursor-pointer box-border border-transparent border-2 select-none hover:border-vivid-purple dark:bg-invoice-dark" *ngIf="this.statusFilters.length < 1 || this.statusFilters.includes(invoice.status)" (click)="onInvoiceClick(invoice)" [ngClass]="{'hidden': invoiceOpen}">
         <div class="flex gap-10">
