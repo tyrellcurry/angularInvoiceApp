@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './invoice-main.component.html',
 })
 export class InvoiceMainComponent implements OnInit {
-  constructor(public _invoiceService: InvoiceService, private http: HttpClient) {}
+  constructor(public _invoiceService: InvoiceService, private http: HttpClient) { }
 
   statusFilters = this._invoiceService.statusFilters
 
@@ -17,6 +17,7 @@ export class InvoiceMainComponent implements OnInit {
 
     // Test API Call:
     this.getApiTest();
+    this.getInvoiceTest();
   }
 
   // Test API Call:
@@ -27,6 +28,16 @@ export class InvoiceMainComponent implements OnInit {
       this.testUser = response[0].userName;
     });
   }
+
+  // Test API Call:
+  public testInvoice: any;
+  public getInvoiceTest() {
+    this.http.get<any[]>('http://localhost:8080/invoices').subscribe((response) => {
+      console.log(response);
+      this.testInvoice = response;
+    });
+  }
+
 
   invoiceOpen: boolean = false;
   darkMode: boolean = false;
@@ -261,7 +272,7 @@ export class InvoiceMainComponent implements OnInit {
     "total": 3102.04
   }];
 
-  invoiceCount(){
+  invoiceCount() {
     if (this.invoices.length > 0) {
       this._invoiceService.invoiceCount = this.invoices.length;
     }
@@ -276,7 +287,7 @@ export class InvoiceMainComponent implements OnInit {
     this.toggleInvoicePreview();
     this.statusFilters.splice(0, this.statusFilters.length);
   }
-  toggleInvoicePreview():void{
+  toggleInvoicePreview(): void {
     this.invoiceOpen = !this.invoiceOpen;
     this._invoiceService.invoicePreview = !this._invoiceService.invoicePreview;
     this.statusFilters.splice(0, this.statusFilters.length);
