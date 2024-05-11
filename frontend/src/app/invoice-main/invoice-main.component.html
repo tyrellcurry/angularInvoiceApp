@@ -17,19 +17,27 @@
     <!-- Test API Call START -->
     <div *ngIf="testUser" class="pb-2 text-lg">
       <p>Test user from db: <span class="font-semibold">{{ testUser }}</span></p>
+      <p>Invoice number: {{ testInvoice[1].invoiceNumber }}</p>
     </div>
     <!-- Test API Call END -->
-    <div *ngFor="let invoice of invoices" >
-      <div class="flex items-center justify-between px-8 py-4 mb-4 bg-white drop-shadow-md rounded-lg cursor-pointer box-border border-transparent border-2 select-none hover:border-vivid-purple dark:bg-invoice-dark" *ngIf="this.statusFilters.length < 1 || this.statusFilters.includes(invoice.status)" (click)="onInvoiceClick(invoice)" [ngClass]="{'hidden': invoiceOpen}">
+    <div *ngFor="let invoice of invoices">
+      <div
+        class="flex items-center justify-between px-8 py-4 mb-4 bg-white drop-shadow-md rounded-lg cursor-pointer box-border border-transparent border-2 select-none hover:border-vivid-purple dark:bg-invoice-dark"
+        *ngIf="this.statusFilters.length < 1 || this.statusFilters.includes(invoice.status)"
+        (click)="onInvoiceClick(invoice)" [ngClass]="{'hidden': invoiceOpen}">
         <div class="flex gap-10">
-          <p class="font-semibold text-purple-shade w-12 mr-6">#<span class="text-dark-black dark:text-white">{{invoice.id}}</span></p>
-          <p class="text-purple-shade dark:text-faded-hover-purple w-32 mr-4">Due {{invoice.paymentDue | date:'dd MMM yyyy'}}</p>
+          <p class="font-semibold text-purple-shade w-12 mr-6">#<span
+              class="text-dark-black dark:text-white">{{invoice.id}}</span></p>
+          <p class="text-purple-shade dark:text-faded-hover-purple w-32 mr-4">Due {{invoice.paymentDue | date:'dd MMM
+            yyyy'}}</p>
           <p class="text-purple-shade-alt dark:text-white">{{invoice.clientName}}</p>
         </div>
         <div class="flex items-center">
           <p class="dark:text-white pr-12 font-semibold text-lg">${{invoice.total | number : '1.2-2'}}</p>
-          <div class="flex items-center justify-center w-28 text-center rounded-md text-lg select-none pt-1" [ngClass]="{'bg-paid-bg text-paid dark:bg-paid-bg-dark': invoice.status === 'paid', 'bg-pending-bg text-pending dark:bg-pending-bg-dark': invoice.status === 'pending', 'bg-draft-bg text-draft dark:bg-draft-bg-dark dark:text-draft-dark': invoice.status === 'draft'}">
-            <span class="text-4xl">&#8226;</span><p class="font-semibold">{{invoice.status | titlecase}}</p>
+          <div class="flex items-center justify-center w-28 text-center rounded-md text-lg select-none pt-1"
+            [ngClass]="{'bg-paid-bg text-paid dark:bg-paid-bg-dark': invoice.status === 'paid', 'bg-pending-bg text-pending dark:bg-pending-bg-dark': invoice.status === 'pending', 'bg-draft-bg text-draft dark:bg-draft-bg-dark dark:text-draft-dark': invoice.status === 'draft'}">
+            <span class="text-4xl">&#8226;</span>
+            <p class="font-semibold">{{invoice.status | titlecase}}</p>
           </div>
           <div class="pl-4">
             <img class="max-w-[8px] self-center" src="assets/invoice/chevron-right.png" alt="chevron right">
@@ -38,9 +46,11 @@
       </div>
     </div>
     <menu *ngIf="invoiceOpen" class="pb-8">
-      <button class="flex items-center gap-4 group" (click)="toggleInvoicePreview()"><img class="max-w-[9px] self-center rotate-180" src="assets/invoice/chevron-right.png" alt="chevron left"><span class="text-dark-black font-semibold text-lg pt-[3px] group-hover:text-purple-shade dark:text-white dark:group-hover:text-faded-purple-alt">Go back</span></button>
+      <button class="flex items-center gap-4 group" (click)="toggleInvoicePreview()"><img
+          class="max-w-[9px] self-center rotate-180" src="assets/invoice/chevron-right.png" alt="chevron left"><span
+          class="text-dark-black font-semibold text-lg pt-[3px] group-hover:text-purple-shade dark:text-white dark:group-hover:text-faded-purple-alt">Go
+          back</span></button>
     </menu>
     <app-invoice-preview *ngIf="invoiceOpen"></app-invoice-preview>
   </section>
 </ng-template>
-
