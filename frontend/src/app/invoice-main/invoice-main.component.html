@@ -11,13 +11,23 @@
       </p>
     </div>
   </div>
+  <div class="pb-10">
+    <img class="max-w-[300px]" src="assets/invoice/invoices-none.png" alt="Lady with envelop">
+  </div>
+  <div class="text-center">
+    <h3 class="font-bold text-2xl pb-4 dark:text-white">There is nothing here</h3>
+    <p class="leading-5 text-faded-purple-alt">
+      Create an invoice by clicking the <br />
+      <span class="font-semibold">New Invoice</span> button and get started
+    </p>
+  </div>
 </section>
 <ng-template #invoiceSection>
   <section class="pb-20 relative">
     <!-- Test API Call START -->
     <div *ngIf="testUser" class="pb-2 text-lg">
       <p>Test user from db: <span class="font-semibold">{{ testUser }}</span></p>
-      <p>Invoice number: {{ testInvoice[1].invoiceNumber }}</p>
+      <p>Invoice number: {{ testInvoice[1].invoiceNumber }} - test</p>
     </div>
     <!-- Test API Call END -->
     <div *ngFor="let invoice of invoices">
