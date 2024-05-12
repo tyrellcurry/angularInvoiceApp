@@ -39,7 +39,6 @@ export class InvoiceMainComponent implements OnInit {
     });
   }
 
-
   invoiceOpen: boolean = false;
   darkMode: boolean = false;
 
