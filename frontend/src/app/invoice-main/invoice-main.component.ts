@@ -13,7 +13,6 @@ export class InvoiceMainComponent implements OnInit {
 
   ngOnInit(): void {
     // this.onInvoiceClick(this.invoices[1])
-    this.invoiceCount();
 
     // Test API Call:
     this.getApiTest();
@@ -35,6 +34,8 @@ export class InvoiceMainComponent implements OnInit {
     this.http.get<any[]>('http://localhost:8080/invoices').subscribe((response) => {
       console.log(response);
       this.testInvoice = response;
+      console.log(this.testInvoice.length);
+      this.invoiceCount();
     });
   }
 
@@ -274,7 +275,8 @@ export class InvoiceMainComponent implements OnInit {
 
   invoiceCount() {
     if (this.invoices.length > 0) {
-      this._invoiceService.invoiceCount = this.invoices.length;
+      console.log('test')
+      this._invoiceService.invoiceCount = this.testInvoice.length;
     }
   }
 
