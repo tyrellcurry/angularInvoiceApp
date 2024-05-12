@@ -10,9 +10,10 @@ import { InvoiceService } from './invoice.service';
 
 export class AppComponent {
   title = 'angularInvoiceApp';
-  constructor(public _invoiceService: InvoiceService) {}
+  constructor(public _invoiceService: InvoiceService) { }
 
-  disableClicks(){
+  sessions = false;
+  disableClicks() {
     console.log('I clicked!')
   }
 }
